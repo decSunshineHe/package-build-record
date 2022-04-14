@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        // Babel 官方建议我们把 targets 写到 .browserslistrc 或者 package.json 里
+        // 这样其它工具也能更轻易的获取到目标浏览器，另外，npx browserslist 无法从 .babelrc 等 babel 配置文件里读取配置，所以执行的时候看到的会是默认结果
+        // 如果.babelrc和package.json都配置了，会以.babelrc的为主
+        // "targets": {
+        //   "browsers": ["> 0.25%", "last 2 versions"]
+        // },
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ]
+  ]
+}
