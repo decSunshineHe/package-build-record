@@ -9,6 +9,7 @@ module.exports = merge(baseConfig, {
     filename: "[name].[chunkhash:4].js",
     path: path.resolve(__dirname, "../dist"),
   },
+
   devServer: {
     port: 9999,
     open: true,

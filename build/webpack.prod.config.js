@@ -3,6 +3,7 @@ const { merge } = require("webpack-merge");
 const baseConfig = require("./webpack.base.config");
 const AutoUploadPlugin = require("../plugins/auto-upload-plugin");
 
+const isUpload = process.env.npm_config_upload;
 const webpackConfig = merge(baseConfig, {
   mode: "production",
   devtool: "hidden-source-map",
@@ -10,16 +11,17 @@ const webpackConfig = merge(baseConfig, {
     filename: "js/[name].[chunkhash:4].js",
     path: path.resolve(__dirname, "../dist"),
   },
-  plugins: [
-    // new AutoUploadPlugin({
-    //   host: "192.168.0.1",
-    //   username: "root",
-    //   password: "123456",
-    //   remotePath: "/home/",
-    // }),
-  ],
 });
 
-console.log("222", process.argv);
+if (!isUpload) {
+  webpackConfig.plugins.push(
+    new AutoUploadPlugin({
+      host: "192.168.0.99",
+      username: "root",
+      password: "123456",
+      remotePath: "/home/",
+    })
+  );
+}
 
 module.exports = webpackConfig;
