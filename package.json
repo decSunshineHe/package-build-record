@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js",
-    "build": "webpack --config build/webpack.prod.config.js"
+    "build": "webpack --config build/webpack.prod.config.js",
+    "deploy": "npm run build --upload",
+    "debug": "node --inspect --inspect-brk node_modules/webpack/bin/webpack.js --config build/webpack.prod.config.js"
   },
   "author": "",
   "browserslist": [
@@ -24,6 +26,7 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "node-sass": "^7.0.1",
+    "node-ssh": "^12.0.4",
     "postcss-cssnext": "^3.1.1",
     "postcss-loader": "^6.2.1",
     "sass-loader": "^12.6.0",
