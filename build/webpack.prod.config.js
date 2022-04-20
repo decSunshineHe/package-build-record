@@ -1,7 +1,7 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
 const baseConfig = require("./webpack.base.config");
-const AutoUploadPlugin = require("../plugins/auto-upload-plugin");
+const UploadServerPlugin = require("upload-server-webpack-plugin");
 
 const isUpload = process.env.npm_config_upload;
 const webpackConfig = merge(baseConfig, {
@@ -13,9 +13,9 @@ const webpackConfig = merge(baseConfig, {
   },
 });
 
-if (!isUpload) {
+if (isUpload) {
   webpackConfig.plugins.push(
-    new AutoUploadPlugin({
+    new UploadServerPlugin({
       host: "192.168.0.99",
       username: "root",
       password: "123456",

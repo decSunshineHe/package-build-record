@@ -1,8 +1,7 @@
 <template>
   <div class="main-home">
     <div class="header">
-      main Home麻了111--{{ title }}
-      <img src="@/assets/img/avatar.png" alt="" />
+      <img class="webpack-logo" src="@/assets/svg/webpack-logo.svg" alt="" />
     </div>
     <div class="content"></div>
     <div class="footer">
@@ -23,28 +22,27 @@ export default {
 };
 </script>
 
-<style lang="scss">
-$blue: #1875e6;
+<style lang="less">
+@blue: #1875e6;
 .main-home {
   width: 100%;
   height: 100vh;
-  background-image: url("@/assets/img/background.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   .header {
-    color: $blue;
-    font-size: 20px;
-    > img {
-      width: 40px;
+    background: #2b3a42;
+    text-align: left;
+    padding: 20px;
+    & > .webpack-logo {
       height: 40px;
-      float: right;
+      margin-left: 30px;
     }
   }
   .content {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 170px);
   }
   .footer {
-    height: 60px;
+    height: 80px;
     width: 100%;
   }
 }

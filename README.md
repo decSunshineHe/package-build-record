@@ -24,7 +24,7 @@ npm run build upload
 
 ## 支持情况
 
-- 支持 css、scss 样式表
+- 支持 css、less 样式表
 - 支持 img 标签、background-img 的图片
 - 支持 vue、vue-router
 - 支持 svg 图片
